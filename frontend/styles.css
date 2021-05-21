@@ -5,15 +5,27 @@ body {
 
 .container {
     display: flex;
-    flex-flow: nowrap row;
     height: 100vh;
+    flex-flow: nowrap row;
 }
 
 .left-panel {
     background: url('./assets/panel-violin-resize.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    width: 35vw;
+    width: 30vw;
+}
+
+.panel-title {
+    font-family: 'Italianno', cursive;
+    font-size: 5em;
+    margin: 0 auto;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.panel-subtitle {
+    margin: 0 auto;
+    text-shadow: 2px 2px 4px #000;
 }
 
 .left-panel > div {
@@ -23,7 +35,7 @@ body {
 
 .main-panel {
     background-color: silver;
-    width: 65vw;
+    width: 70vw;
 }
 
 .main-panel > div {
