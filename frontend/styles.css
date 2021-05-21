@@ -16,28 +16,34 @@ body {
     width: 30vw;
 }
 
+.panel-container {
+    color: #fff;
+    padding: 5px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.panel-header {
+    border: 2px solid silver;
+    height: 10em;
+    padding: 5px;
+}
+
 .panel-title {
     font-family: 'Italianno', cursive;
     font-size: 5em;
     margin: 0 auto;
-    text-shadow: 2px 2px 4px #000;
 }
 
 .panel-subtitle {
     margin: 0 auto;
-    text-shadow: 2px 2px 4px #000;
 }
 
-.left-panel > div {
-    color: #fff;
-    padding: 5px;
-}
-
-.main-panel {
+.main-container {
     background-color: silver;
+    padding: 5px;
     width: 70vw;
 }
 
-.main-panel > div {
-    padding: 5px;
+.main-header {
+    
 }
