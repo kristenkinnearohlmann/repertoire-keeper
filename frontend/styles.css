@@ -9,7 +9,7 @@ body {
     flex-flow: nowrap row;
 }
 
-.left-panel {
+.panel-container {
     background: url('./assets/panel-violin-resize.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,15 +17,14 @@ body {
     min-width: 460px;
 }
 
-.panel-container {
+.panel-subcontainer {
     color: #fff;
     padding: 5px;
     text-shadow: 2px 2px 4px #000;
 }
 
 .panel-header {
-    border: 2px solid silver;
-    height: 10em;
+    height: 9em;
     padding: 5px;
 }
 
@@ -41,16 +40,26 @@ body {
 
 .main-container {
     background-color: silver;
-    padding: 5px;
     width: 70vw;
 }
 
+.main-subcontainer {
+}
+
 .main-header {
-    
+    border-bottom:2px solid #000; 
+}
+
+.main-org {
+    padding: 5px;
+}
+
+.main-body {
+    padding: 5px;
 }
 
 @media only screen and (max-width: 1080px) {
-    .left-panel {
+    .panel-container {
         max-width: 24vw;
         min-width: 368px;
     }
