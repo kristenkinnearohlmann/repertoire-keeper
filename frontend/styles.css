@@ -13,7 +13,8 @@ body {
     background: url('./assets/panel-violin-resize.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    width: 30vw;
+    max-width: 30vw;
+    min-width: 460px;
 }
 
 .panel-container {
@@ -46,4 +47,15 @@ body {
 
 .main-header {
     
+}
+
+@media only screen and (max-width: 1080px) {
+    .left-panel {
+        max-width: 24vw;
+        min-width: 368px;
+    }
+
+    .panel-title {
+        font-size: 4em;
+    }
 }
