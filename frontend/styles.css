@@ -1,3 +1,31 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-flow: nowrap row;
+    height: 100vh;
+}
+
+.left-panel {
+    background: url('./assets/panel-violin-resize.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35vw;
+}
+
+.left-panel > div {
+    color: #fff;
+    padding: 5px;
+}
+
+.main-panel {
+    background-color: silver;
+    width: 65vw;
+}
+
+.main-panel > div {
+    padding: 5px;
 }
