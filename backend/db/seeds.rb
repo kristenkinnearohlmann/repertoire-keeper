@@ -33,3 +33,14 @@ comp_9 = Composition.create(name: 'Symphonic Dances from "West Side Story"', com
 comp_10 = Composition.create(name: 'The Year 1812 Solemn Overture, Op. 49', composer_lastname: 'Tchaikovsky', composer_firstname: 'Pyotr Ilyich', year_composed: 1880)
 
 comp_11 = Composition.create(name: 'Festive Overture in A major, Op. 96', composer_lastname: 'Shostakovich', composer_firstname: 'Dmitri', year_composed: 1947)
+
+# Performance
+# performance_year t.integer
+# references organization:references
+# references composition:references
+# years 2016, 2017, 2018, 2019, 2020
+# SPCS: all but 2020
+# MSO: all
+# cross Beethoven 6 2019 SPCS, 2016 MSO
+# cross Bernstein 2020 SPCS, 2018 MSO
+# 1 per year otherwise
