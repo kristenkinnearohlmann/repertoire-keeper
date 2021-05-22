@@ -78,11 +78,14 @@ const getCompositions = () => {
 
 function compositionSort(data) {
     return(data.sort((a,b) => {
-        if (a.name < b.name) {
+        const aVals = `${a.composer_lastname.toLowerCase()} ${a.composer_firstname.toLowerCase()} ${a.name}`;
+        const bVals = `${b.composer_lastname.toLowerCase()} ${b.composer_firstname.toLowerCase()} ${b.name}`;
+
+        if (aVals < bVals) {
             return -1;
         }
     
-        if (a.name > b.name) {
+        if (aVals > bVals) {
             return 1;
         }
     
