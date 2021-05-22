@@ -13,11 +13,9 @@ class Organization {
     }
 
     renderDescription() {
-        // console.log(this.OrgDescr);
-        // const p = document.createElement("p");
-        // p.innerText = this.OrgDescr;
-        // console.log(p);
-        // return p;
+        const p = document.createElement("p");
+        p.innerText = this.orgDescr;
+        return p;
     }
 
 //     static displayOrgInformation(event) {

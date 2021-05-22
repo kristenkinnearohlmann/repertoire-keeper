@@ -40,7 +40,9 @@ function displaySelectedOrgInfo(event) {
             mainMsgDefault.classList.add("display-none");
             const org = new Organization(data);
             console.log(org);
-            console.log(org.orgDescr);
+            console.log(org.renderDescription());
+            const orgDescr = org.renderDescription();
+            mainMsg.appendChild(orgDescr);
             // console.log(org.orgDescr);
             // console.log(org.renderDescription());
             // mainMsg.appendChild(org.renderDescription());
