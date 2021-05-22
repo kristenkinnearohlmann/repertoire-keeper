@@ -9,7 +9,6 @@ class Organization {
     }
 
     static createOrgList(orgs) {
-        console.log(orgs);
         const select = document.querySelector('#org-names');
 
         for (const org of orgs) {
@@ -19,11 +18,11 @@ class Organization {
             select.add(option);
         }
         select.addEventListener('change', event => {
-            const org = Organization.getOrgInformation(event);
+            Organization.displayOrgInformation(event);
         })
     }
 
-    static getOrgInformation(event) {
+    static displayOrgInformation(event) {
         const selected = event.target;
 
         fetch(`${ORGS_URL}/${selected.value}`)
@@ -32,16 +31,25 @@ class Organization {
             })
             .then(object => {
                 console.log(object);
-                const org = new Organization(object.id, object.name, object.org_type, object.year_founded, object.url, object.org_descr)
-                org.sayName();
-                return org;
+
+                const div = document.querySelector("#main-msg");
+                let pDetail = document.createElement("p");
+                let pDescription = document.createElement("p");
+
+                // clear placeholder
+                div.innerHTML = "";
+
+                // add founding year and url
+                pDetail.innerHTML = `<strong>Founding year:</strong> ${object.year_founded}<br/><strong>URL:</strong> <a href="${object.url}" target="_blank">${object.url}</a>`;
+                div.appendChild(pDetail);
+
+                // add description
+                pDescription.innerHTML = `<strong>Description:</strong> ${object.org_descr}`;
+                div.appendChild(pDescription);
             })
             .catch(message => {
                 console.log(message);
             })
     }
 
-    sayName() {
-        console.log(`My name is ${this._name}`);
-    }
 }
