@@ -1,31 +1,14 @@
-// class Organization {
-//     constructor(id, name, org_type, year_founded, url, org_descr) {
-//         this._id = id;
-//         this._name = name;
-//         this._org_type = org_type;
-//         this._year_founded = year_founded;
-//         this._url = url;
-//         this._org_descr = org_descr;
-//     }
+class Organization {
+    constructor(data) {
+        this._id = data.id;
+        this._name = data.name;
+        this._org_type = data.org_type;
+        this._year_founded = data.year_founded;
+        this._url = data.url;
+        this._org_descr = data.org_descr;
+    }
 
-//     static createOrgList(orgs) {
-//         const select = document.querySelector('#org-names');
 
-//         for (const org of orgs) {
-//             const option = document.createElement("option");
-//             option.text = org.name;
-//             option.value = org.id;
-//             select.add(option);
-//         }
-//         select.addEventListener('change', event => {
-//             const idValue = parseInt(event.target.value);
-//             if (!!idValue) {
-//                 Organization.displayOrgInformation(event);
-//             } else {
-//                 document.querySelector("#main-msg").innerHTML = "<p>Information for organization's performances will appear here.</p>";
-//             }
-//         })
-//     }
 
 //     static displayOrgInformation(event) {
 //         const selected = event.target;
@@ -57,4 +40,4 @@
 
 //     }
 
-// }
+}
