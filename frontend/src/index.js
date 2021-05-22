@@ -2,6 +2,7 @@ const BASE_URL = "http://localhost:3000";
 const orgNames = document.getElementById("org-names");
 const mainMsg = document.getElementById("main-msg");
 const mainMsgDefault = document.getElementById("main-msg-default");
+const allCompositions = [];
 
 // structure page for use
 const init = () => {
@@ -12,9 +13,7 @@ const init = () => {
 
 const getOrgNames = () => {
     fetch(`${BASE_URL}/organizations`)
-        .then(response => {
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             for (const item of data) {
                 const org = new Organization(item);
@@ -38,9 +37,7 @@ function displaySelectedOrgInfo(event) {
 
     if (!!idValue) {
         fetch(`${BASE_URL}/organizations/${idValue}`)
-        .then(response => {
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             mainMsgDefault.classList.add("display-none");
             const org = new Organization(data);
@@ -59,8 +56,39 @@ const getCompositions = () => {
         .then(data => {
             console.log("Handle composition data");
             console.log(data);
+            allCompositions.push("b");
+            allCompositions.push("a");
+            allCompositions.push("c");
+            console.log(allCompositions);
+            console.log(allCompositions.sort());
+            console.log(compositionSort(data));
+            // console.log(data.sort((a,b) => {
+            //     if (a.name < b.name) {
+            //         return -1;
+            //     }
+
+            //     if (a.name > b.name) {
+            //         return 1;
+            //     }
+
+            //     return 0;
+            // }));
         });
 };
+
+function compositionSort(data) {
+    return(data.sort((a,b) => {
+        if (a.name < b.name) {
+            return -1;
+        }
+    
+        if (a.name > b.name) {
+            return 1;
+        }
+    
+        return 0;
+    }));
+}
 
 // load page
 init();
