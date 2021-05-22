@@ -1,6 +1,7 @@
 const BASE_URL = "http://localhost:3000";
 const orgNames = document.getElementById("org-names");
 const mainMsg = document.getElementById("main-msg");
+const mainMsgDefault = document.getElementById("main-msg-default");
 
 // structure page for use
 const init = () => {
@@ -35,11 +36,18 @@ function displaySelectedOrgInfo(event) {
             return response.json();
         })
         .then(data => {
-            console.log(data);
-            mainMsg.classList.add("display-none");
+            // console.log(data);
+            mainMsgDefault.classList.add("display-none");
+            const org = new Organization(data);
+            console.log(org);
+            console.log(org.orgDescr);
+            // console.log(org.orgDescr);
+            // console.log(org.renderDescription());
+            // mainMsg.appendChild(org.renderDescription());
+            // mainMsg.insertAdjacentElement(org.renderDescription);
         });
     } else {
-        mainMsg.classList.remove("display-none");
+        mainMsgDefault.classList.remove("display-none");
     }
 };
 

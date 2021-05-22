@@ -2,13 +2,23 @@ class Organization {
     constructor(data) {
         this._id = data.id;
         this._name = data.name;
-        this._org_type = data.org_type;
-        this._year_founded = data.year_founded;
+        this._orgType = data.org_type;
+        this._yearFounded = data.year_founded;
         this._url = data.url;
-        this._org_descr = data.org_descr;
+        this._orgDescr = data.org_descr;
     }
 
+    get orgDescr() {
+        return this._orgDescr;
+    }
 
+    renderDescription() {
+        // console.log(this.OrgDescr);
+        // const p = document.createElement("p");
+        // p.innerText = this.OrgDescr;
+        // console.log(p);
+        // return p;
+    }
 
 //     static displayOrgInformation(event) {
 //         const selected = event.target;
