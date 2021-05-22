@@ -1,8 +1,11 @@
 class Organization {
-    constructor(id, name, org_type) {
+    constructor(id, name, org_type, year_founded, url, org_descr) {
         this._id = id;
         this._name = name;
         this._org_type = org_type;
+        this._year_founded = year_founded;
+        this._url = url;
+        this._org_descr = org_descr;
     }
 
     static createOrgList(orgs) {

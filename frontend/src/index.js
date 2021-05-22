@@ -3,7 +3,7 @@ const ORGS_URL = `${BASE_URL}/organizations`;
 
 document.addEventListener("DOMContentLoaded",function(){
     let p = document.createElement('p');
-    p.innerText = "This is only a test";
+    p.innerText = "Information for organization's performances will appear here.";
     document.getElementById("main-msg").appendChild(p);
     listOrgs();
 });
