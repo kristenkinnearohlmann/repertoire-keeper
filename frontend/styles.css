@@ -19,6 +19,14 @@ a:visited {
     display: none;
 }
 
+.script-title {
+    color: #000;
+    font-family: 'Italianno', cursive; 
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 4px #666699;
+}
+
 .container {
     display: flex;
     height: 100vh;
@@ -63,19 +71,20 @@ a:visited {
 }
 
 .main-header {
-    border-bottom:2px solid #000; 
+    border-bottom:2px solid #000;
+    padding: 10px;
 }
 
 .main-org {
-    padding: 5px;
+
 }
 
 .main-body {
-    padding: 5px;
+    padding: 10px;
 }
 
 .main-org > form {
-    padding: 5px;
+
 }
 
 #org-names {

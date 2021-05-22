@@ -34,8 +34,13 @@ class Organization {
 
     renderDescription() {
         const div = document.createElement("div");
+        const h2 = document.createElement("h2");
         const pDetail = document.createElement("p");
         const pDescription = document.createElement("p");
+
+        h2.innerText = this.orgName;
+        h2.classList.add("script-title");
+        div.append(h2);
 
         pDetail.innerHTML = `<p><em>Founded in ${this.yearFounded} | <a href="${this.url}" target=_"blank">${this.url}</a></em></p>`;
         pDescription.innerText = this.orgDescr;
