@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :compositions
   root to: "static#home"
 
   resources :organizations
