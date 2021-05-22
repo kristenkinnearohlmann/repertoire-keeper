@@ -29,7 +29,13 @@ function displaySelectedOrgInfo(event) {
     const idValue = parseInt(event.target.value);
     console.log(idValue);
     if (!!idValue) {
-
+        fetch(`${BASE_URL}/organizations/${idValue}`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        });
     }
 };
 
