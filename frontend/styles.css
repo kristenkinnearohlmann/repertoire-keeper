@@ -15,6 +15,10 @@ a:visited {
     color: #778899;
 }
 
+.display-none {
+    display: none;
+}
+
 .container {
     display: flex;
     height: 100vh;

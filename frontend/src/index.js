@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3000";
 const orgNames = document.getElementById("org-names");
+const mainMsg = document.getElementById("main-msg");
 
 // structure page for use
 const init = () => {
@@ -35,7 +36,10 @@ function displaySelectedOrgInfo(event) {
         })
         .then(data => {
             console.log(data);
+            mainMsg.classList.add("display-none");
         });
+    } else {
+        mainMsg.classList.remove("display-none");
     }
 };
 
