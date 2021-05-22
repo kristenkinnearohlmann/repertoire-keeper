@@ -27,6 +27,14 @@ class Composition {
     }
 
     get composerFullNameDirectoryStyle() {
-        return `$${this._composerLastName}, {this._composerFirstName}`;
+        return `${this._composerLastName}, ${this._composerFirstName}`;
+    }
+
+    renderCompositionListItem() {
+        const li = document.createElement("li");
+
+        li.innerText = `${this.composerFullNameDirectoryStyle}: ${this.compositionName} (${this.yearComposed})`;
+
+        return li;
     }
 }

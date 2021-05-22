@@ -1,6 +1,9 @@
 const BASE_URL = "http://localhost:3000";
 const orgNames = document.getElementById("org-names");
+const mainBody = document.getElementById("main-body");
 const mainMsg = document.getElementById("main-msg");
+const mainCompList = document.getElementById("main-comp-list");
+const mainCompListItems = [];
 const mainMsgDefault = document.getElementById("main-msg-default");
 
 // structure page for use
@@ -32,9 +35,13 @@ function displaySelectedOrgInfo(event) {
     const idValue = parseInt(event.target.value);
     const pOrgDescrDetail = document.getElementById("org-descr-detail");
 
-    if (!!pOrgDescrDetail) mainMsg.removeChild(pOrgDescrDetail);
+    if (!!pOrgDescrDetail) {
+        mainMsg.removeChild(pOrgDescrDetail);
+    }
 
     if (!!idValue) {
+        clearMainCompList();
+
         fetch(`${BASE_URL}/organizations/${idValue}`)
         .then(response => response.json())
         .then(data => {
@@ -49,16 +56,21 @@ function displaySelectedOrgInfo(event) {
 };
 
 const getCompositions = () => {
-    console.log("getCompositions");
     fetch(`${BASE_URL}/compositions`)
         .then(response => response.json())
         .then(data => {
             console.log("Handle composition data");
+            const ul = document.createElement("ul");
             const comps = compositionSort(data);
+
             for (let item in comps) {
                 const comp = new Composition(comps[item]);
-                console.log(comp);
+                const li = comp.renderCompositionListItem();
+                ul.appendChild(li);
+                mainCompListItems.push(li);
             }
+
+            mainCompList.appendChild(ul);
         });
 };
 
@@ -78,6 +90,10 @@ function compositionSort(data) {
         return 0;
     }));
 }
+
+function clearMainCompList() {
+    console.log(mainCompList);
+};
 
 // load page
 init();
