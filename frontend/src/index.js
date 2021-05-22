@@ -21,6 +21,16 @@ const getOrgNames = () => {
                 orgNames.add(option);
             }
         })
+
+        orgNames.addEventListener('change', displaySelectedOrgInfo);
+};
+
+function displaySelectedOrgInfo(event) {
+    const idValue = parseInt(event.target.value);
+    console.log(idValue);
+    if (!!idValue) {
+
+    }
 };
 
 // load page

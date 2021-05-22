@@ -70,6 +70,10 @@ a:visited {
     padding: 5px;
 }
 
+.main-org > form {
+    padding: 5px;
+}
+
 #org-names {
     background-color: silver;
     border: 2px solid darkgray;
