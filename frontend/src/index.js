@@ -2,7 +2,6 @@ const BASE_URL = "http://localhost:3000";
 const orgNames = document.getElementById("org-names");
 const mainMsg = document.getElementById("main-msg");
 const mainMsgDefault = document.getElementById("main-msg-default");
-const allCompositions = [];
 
 // structure page for use
 const init = () => {
@@ -55,24 +54,11 @@ const getCompositions = () => {
         .then(response => response.json())
         .then(data => {
             console.log("Handle composition data");
-            console.log(data);
-            allCompositions.push("b");
-            allCompositions.push("a");
-            allCompositions.push("c");
-            console.log(allCompositions);
-            console.log(allCompositions.sort());
-            console.log(compositionSort(data));
-            // console.log(data.sort((a,b) => {
-            //     if (a.name < b.name) {
-            //         return -1;
-            //     }
-
-            //     if (a.name > b.name) {
-            //         return 1;
-            //     }
-
-            //     return 0;
-            // }));
+            const comps = compositionSort(data);
+            for (let item in comps) {
+                const comp = new Composition(comps[item]);
+                console.log(comp);
+            }
         });
 };
 
