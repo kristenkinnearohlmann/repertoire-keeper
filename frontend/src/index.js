@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3000/";
-const ORGS_URL = `${BASE_URL}/organizations`;
+const ORGS_URL = `${BASE_URL}organizations`;
 
 document.addEventListener("DOMContentLoaded",function(){
     let p = document.createElement('p');
