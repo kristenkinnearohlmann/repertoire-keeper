@@ -29,24 +29,20 @@ const getOrgNames = () => {
 
 function displaySelectedOrgInfo(event) {
     const idValue = parseInt(event.target.value);
-    console.log(idValue);
+    const pOrgDescrDetail = document.getElementById("org-descr-detail");
+
+    if (!!pOrgDescrDetail) mainMsg.removeChild(pOrgDescrDetail);
+
     if (!!idValue) {
         fetch(`${BASE_URL}/organizations/${idValue}`)
         .then(response => {
             return response.json();
         })
         .then(data => {
-            // console.log(data);
             mainMsgDefault.classList.add("display-none");
             const org = new Organization(data);
-            console.log(org);
-            console.log(org.renderDescription());
             const orgDescr = org.renderDescription();
             mainMsg.appendChild(orgDescr);
-            // console.log(org.orgDescr);
-            // console.log(org.renderDescription());
-            // mainMsg.appendChild(org.renderDescription());
-            // mainMsg.insertAdjacentElement(org.renderDescription);
         });
     } else {
         mainMsgDefault.classList.remove("display-none");

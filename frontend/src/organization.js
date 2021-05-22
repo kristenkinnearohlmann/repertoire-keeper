@@ -8,44 +8,31 @@ class Organization {
         this._orgDescr = data.org_descr;
     }
 
+    get yearFounded() {
+        return this._yearFounded;
+    }
+
+    get url() {
+        return this._url;
+    }
+
     get orgDescr() {
         return this._orgDescr;
     }
 
     renderDescription() {
-        const p = document.createElement("p");
-        p.innerText = this.orgDescr;
-        return p;
+        const div = document.createElement("div");
+        const pDetail = document.createElement("p");
+        const pDescription = document.createElement("p");
+
+        pDetail.innerHTML = `<p><em>Founded in ${this.yearFounded} | <a href="${this.url}" target=_"blank">${this.url}</a></em></p>`;
+        pDescription.innerText = this.orgDescr;
+
+        div.append(pDetail);
+        div.appendChild(pDescription);
+        div.id = ("org-descr-detail");
+
+        return div;
     }
-
-//     static displayOrgInformation(event) {
-//         const selected = event.target;
-
-//         fetch(`${ORGS_URL}/${selected.value}`)
-//         .then(response => {
-//             return response.json();
-//         })
-//         .then(object => {
-//             console.log(object);
-//             const div = document.querySelector("#main-msg");
-//             let pDetail = document.createElement("p");
-//             let pDescription = document.createElement("p");
-
-//             // clear placeholder
-//             div.innerHTML = "";
-
-//             // add founding year and url
-//             pDetail.innerHTML = `<strong>Founding year:</strong> ${object.year_founded}<br/><strong>URL:</strong> <a href="${object.url}" target="_blank">${object.url}</a>`;
-//             div.appendChild(pDetail);
-
-//             // add description
-//             pDescription.innerHTML = `<strong>Description:</strong> ${object.org_descr}`;
-//             div.appendChild(pDescription);
-//         })
-//         .catch(message => {
-//             console.log(message);
-//         })
-
-//     }
 
 }
