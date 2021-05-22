@@ -8,6 +8,18 @@ class Organization {
         this._orgDescr = data.org_descr;
     }
 
+    get orgId() {
+        return this._id;
+    }
+
+    get orgName() {
+        return this._name;
+    }
+
+    get orgType() {
+        return this._orgType;
+    }
+
     get yearFounded() {
         return this._yearFounded;
     }

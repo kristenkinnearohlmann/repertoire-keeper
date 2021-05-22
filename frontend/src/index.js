@@ -15,11 +15,13 @@ const getOrgNames = () => {
             return response.json();
         })
         .then(data => {
-            for (const org of data) {
-                const { name, id } = org;
+            for (const item of data) {
+                const org = new Organization(item);
                 const option = document.createElement("option");
-                option.text = name;
-                option.value = id;
+
+                option.text = org.orgName;
+                option.value = org.orgId;
+                
                 orgNames.add(option);
             }
         })
