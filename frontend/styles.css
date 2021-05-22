@@ -58,6 +58,15 @@ body {
     padding: 5px;
 }
 
+#org-names {
+    background-color: silver;
+    border: 2px solid darkgray;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
 @media only screen and (max-width: 1080px) {
     .panel-container {
         max-width: 24vw;
