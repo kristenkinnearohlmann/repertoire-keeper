@@ -27,7 +27,15 @@ class Composition {
     }
 
     get composerFullNameDirectoryStyle() {
-        return `${this._composerLastName}, ${this._composerFirstName}`;
+        let fmtName;
+
+        if (this._composerFirstName === "") {
+            fmtName = this._composerLastName;
+        } else {
+            fmtName = `${this._composerLastName}, ${this._composerFirstName}`;
+        }
+
+        return fmtName;
     }
 
     renderCompositionListItem() {

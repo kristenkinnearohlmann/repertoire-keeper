@@ -40,8 +40,6 @@ function displaySelectedOrgInfo(event) {
     }
 
     if (!!idValue) {
-        clearMainCompList();
-
         fetch(`${BASE_URL}/organizations/${idValue}`)
         .then(response => response.json())
         .then(data => {
@@ -49,9 +47,11 @@ function displaySelectedOrgInfo(event) {
             const org = new Organization(data);
             const orgDescr = org.renderDescription();
             mainMsg.appendChild(orgDescr);
+            // TODO: Main comp list for org once performance join table is ready
         });
     } else {
         mainMsgDefault.classList.remove("display-none");
+        renderCompList(mainCompListItems);
     }
 };
 
@@ -59,18 +59,15 @@ const getCompositions = () => {
     fetch(`${BASE_URL}/compositions`)
         .then(response => response.json())
         .then(data => {
-            console.log("Handle composition data");
-            const ul = document.createElement("ul");
             const comps = compositionSort(data);
 
             for (let item in comps) {
                 const comp = new Composition(comps[item]);
                 const li = comp.renderCompositionListItem();
-                ul.appendChild(li);
                 mainCompListItems.push(li);
             }
 
-            mainCompList.appendChild(ul);
+            renderCompList(mainCompListItems);
         });
 };
 
@@ -91,8 +88,11 @@ function compositionSort(data) {
     }));
 }
 
-function clearMainCompList() {
-    console.log(mainCompList);
+function renderCompList(items) {
+    mainCompList.querySelector("ul").innerHTML = "";
+    for (let item of items) {
+        mainCompList.querySelector("ul").appendChild(item);
+    }
 };
 
 // load page
