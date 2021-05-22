@@ -3,6 +3,18 @@ body {
     margin: 0 auto;
 }
 
+a {
+    color: #666699;
+}
+
+a:hover, a:active {
+    color: #fff;
+}
+
+a:visited {
+    color: #778899;
+}
+
 .container {
     display: flex;
     height: 100vh;
