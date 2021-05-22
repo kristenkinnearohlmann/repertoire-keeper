@@ -6,6 +6,7 @@ const mainMsgDefault = document.getElementById("main-msg-default");
 // structure page for use
 const init = () => {
     getOrgNames();
+    getCompositions();
 };
 
 
@@ -21,7 +22,7 @@ const getOrgNames = () => {
 
                 option.text = org.orgName;
                 option.value = org.orgId;
-                
+
                 orgNames.add(option);
             }
         })
@@ -49,6 +50,16 @@ function displaySelectedOrgInfo(event) {
     } else {
         mainMsgDefault.classList.remove("display-none");
     }
+};
+
+const getCompositions = () => {
+    console.log("getCompositions");
+    fetch(`${BASE_URL}/compositions`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Handle composition data");
+            console.log(data);
+        });
 };
 
 // load page
