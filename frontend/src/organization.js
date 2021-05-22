@@ -24,14 +24,13 @@ class Organization {
 
     static displayOrgInformation(event) {
         const selected = event.target;
-
+        console.log(selected.value);
         fetch(`${ORGS_URL}/${selected.value}`)
             .then(response => {
                 return response.json();
             })
             .then(object => {
                 console.log(object);
-
                 const div = document.querySelector("#main-msg");
                 let pDetail = document.createElement("p");
                 let pDescription = document.createElement("p");

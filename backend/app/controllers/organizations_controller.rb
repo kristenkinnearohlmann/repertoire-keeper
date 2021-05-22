@@ -6,12 +6,15 @@ class OrganizationsController < ApplicationController
     end
 
     def show
-        puts params
         if params[:id]
-            org = Organization.find(params[:id])
-            render json: OrganizationSerializer.new(org).to_serialized_json
+            org = Organization.find_by(id: params[:id])
+            if org
+                render json: OrganizationSerializer.new(org).to_serialized_json
+            else
+                render json: { message: "Id not found." }
+            end
         else
-            render json: { message: "Id not found." }
+            render json: { message: "No Id given." }
         end
     end
 end
