@@ -23,24 +23,29 @@ class Performance {
     renderPerformanceData() {
         const div = document.createElement("div");
         const h3 = document.createElement("h3");
-        const btn = document.createElement("button");
+        const btnEdit = document.createElement("button");
         const subDiv = document.createElement("div")
-        const ul = document.createElement("ul");
 
         h3.innerHTML = this.performanceYear;
         div.appendChild(h3);
 
-        // subDiv.innerHTML = `<ul>${this.getPerformanceCompositions().map(comp => {
-        //     return `<li data-comp-id="${comp.compositionId}"><button id='btn-comp-${comp.compositionId}'>X</button>${comp.composerLastName}: ${comp.compositionName}</li>`;
-        // }).join("")}</ul>`;
+        subDiv.appendChild(this.buildCompositionList());
+        div.appendChild(subDiv);
 
-        
-        // subDiv.innerHTML = '<ul>';
+        div.classList.add("detail-container-item");
+        div.setAttribute('data-perf-id',this.performanceId);
 
-        // subDiv.innerHTML = `<ul>${this.getPerformanceCompositions().map(comp => {
-        //     return `<li data-comp-id="${comp.compositionId}"><button id='btn-comp-${comp.compositionId}'>X</button>${comp.composerLastName}: ${comp.compositionName}</li>`;
-        // }).join("")}</ul>`;
-// add event listener to ul for indiv X?
+        btnEdit.innerText = "Edit performance";
+        btnEdit.id = `btn-edit-perf-${this.performanceId}`;
+        btnEdit.classList.add("main-body-button");
+        btnEdit.addEventListener('click',editPerformance);
+        div.appendChild(btnEdit);
+
+        return div;
+    }
+
+    buildCompositionList() {
+        const ul = document.createElement("ul");
 
         ul.id = `perf-${this.performanceId}-comps`;
         for (let comp of this.getPerformanceCompositions()) {
@@ -60,18 +65,7 @@ class Performance {
             li.appendChild(btn);
             ul.appendChild(li);
         }
-        subDiv.appendChild(ul);
-        div.appendChild(subDiv);
 
-        div.classList.add("detail-container-item");
-        div.setAttribute('data-perf-id',this.performanceId);
-
-        btn.innerText = "Edit performance";
-        btn.id = `btn-edit-perf-${this.performanceId}`;
-        btn.classList.add("main-body-button");
-        btn.addEventListener('click',editPerformance);
-        div.appendChild(btn);
-
-        return div;
+        return ul;
     }
 }

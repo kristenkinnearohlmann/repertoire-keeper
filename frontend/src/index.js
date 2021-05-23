@@ -129,7 +129,6 @@ function editPerformance(event) {
 
     toggleEditBtns();
     btns.forEach(btn => {
-        console.log(btn.id);
         if (!btn.id.includes('edit')) {
             btn.classList.remove("display-none");
         }
@@ -140,7 +139,6 @@ function toggleEditBtns() {
     const btns = document.getElementById('main-body').querySelectorAll('button');
 
     btns.forEach(btn => {
-        console.log(btn);
         if (btn.id.includes('edit') && btn.disabled) {
             btn.disabled = false;
         } else if (btn.id.includes('edit') && !btn.disabled) {
@@ -152,6 +150,7 @@ function toggleEditBtns() {
 function deletePerformanceComposition(event) {
     const item = event.target;
     console.log(item.id);
+    console.log(item.parentElement);
 };
 
 // load page
