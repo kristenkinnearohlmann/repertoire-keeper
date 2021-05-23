@@ -25,13 +25,39 @@ class Performance {
         const h3 = document.createElement("h3");
         const btn = document.createElement("button");
         const subDiv = document.createElement("div")
+        const ul = document.createElement("ul");
 
         h3.innerHTML = this.performanceYear;
         div.appendChild(h3);
 
-        subDiv.innerHTML = `<ul>${this.getPerformanceCompositions().map(comp => {
-            return `<li data-comp-id="${comp.compositionId}"><button id='btn-comp-${comp.compositionId}'>X</button>${comp.composerLastName}: ${comp.compositionName}</li>`;
-        }).join("")}</ul>`;
+        // subDiv.innerHTML = `<ul>${this.getPerformanceCompositions().map(comp => {
+        //     return `<li data-comp-id="${comp.compositionId}"><button id='btn-comp-${comp.compositionId}'>X</button>${comp.composerLastName}: ${comp.compositionName}</li>`;
+        // }).join("")}</ul>`;
+
+        
+        // subDiv.innerHTML = '<ul>';
+
+        // subDiv.innerHTML = `<ul>${this.getPerformanceCompositions().map(comp => {
+        //     return `<li data-comp-id="${comp.compositionId}"><button id='btn-comp-${comp.compositionId}'>X</button>${comp.composerLastName}: ${comp.compositionName}</li>`;
+        // }).join("")}</ul>`;
+// add event listener to ul for indiv X?
+
+        ul.id = `perf-${this.performanceId}-comps`;
+        for (let comp of this.getPerformanceCompositions()) {
+            const li = document.createElement("li");
+            const btn = document.createElement("button");
+
+            btn.id = `btn-comp-${comp.compositionId}`;
+            btn.innerText = 'X';
+
+            li.setAttribute('data-comp-id',comp.compositionId);
+            li.innerText = `${comp.composerLastName}: ${comp.compositionName}`;
+
+            btn.appendChild(li);
+            btn.addEventListener('click',deletePerformanceComposition);
+            ul.appendChild(btn);
+        }
+        subDiv.appendChild(ul);
         div.appendChild(subDiv);
 
         div.classList.add("detail-container-item");
@@ -39,7 +65,6 @@ class Performance {
 
         btn.innerText = "Edit performance";
         btn.id = `btn-perf-${this.performanceId}`;
-        // btn.setAttribute('data-btn-perf-id',this.performanceId);
         btn.addEventListener('click',editPerformance);
         div.appendChild(btn);
 

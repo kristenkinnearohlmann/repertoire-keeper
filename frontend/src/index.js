@@ -127,7 +127,12 @@ function editPerformance(event) {
     const item = event.target;
     // console.log(item.getAttribute('data-btn-perf-id'));
     console.log(item.id);
-}
+};
+
+function deletePerformanceComposition(event) {
+    const item = event.target;
+    console.log(item.id);
+};
 
 // load page
 init();
