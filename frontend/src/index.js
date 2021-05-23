@@ -107,15 +107,12 @@ function renderOrgPerformances(idValue) {
     fetch(`${BASE_URL}/organizations/${idValue}/performances/`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             for (let item of data) {
                 let perf = new Performance(item);
-                console.log(perf.performanceYear);
-                console.log(perf.organizationName);
                 mainPerfList.appendChild(perf.renderPerformanceData());
             }
         });
-}
+};
 
 // load page
 init();
