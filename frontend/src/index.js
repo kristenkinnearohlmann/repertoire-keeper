@@ -123,5 +123,9 @@ function performanceYearReverseSort(data) {
     }));
 };
 
+function editPerformance(event) {
+    console.log('Clicked');
+}
+
 // load page
 init();
