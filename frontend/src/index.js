@@ -125,7 +125,8 @@ function performanceYearReverseSort(data) {
 
 function editPerformance(event) {
     const item = event.target;
-    console.log(item.getAttribute('data-btn-perf-id'));
+    // console.log(item.getAttribute('data-btn-perf-id'));
+    console.log(item.id);
 }
 
 // load page

@@ -30,7 +30,7 @@ class Performance {
         div.appendChild(h3);
 
         subDiv.innerHTML = `<ul>${this.getPerformanceCompositions().map(comp => {
-            return `<li data-comp-id="${comp.compositionId}">${comp.composerLastName}: ${comp.compositionName}</li>`;
+            return `<li data-comp-id="${comp.compositionId}"><button id='btn-comp-${comp.compositionId}'>X</button>${comp.composerLastName}: ${comp.compositionName}</li>`;
         }).join("")}</ul>`;
         div.appendChild(subDiv);
 
@@ -38,7 +38,8 @@ class Performance {
         div.setAttribute('data-perf-id',this.performanceId);
 
         btn.innerText = "Edit performance";
-        btn.setAttribute('data-btn-perf-id',this.performanceId);
+        btn.id = `btn-perf-${this.performanceId}`;
+        // btn.setAttribute('data-btn-perf-id',this.performanceId);
         btn.addEventListener('click',editPerformance);
         div.appendChild(btn);
 
