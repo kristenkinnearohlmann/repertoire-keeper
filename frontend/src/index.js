@@ -124,7 +124,8 @@ function performanceYearReverseSort(data) {
 };
 
 function editPerformance(event) {
-    console.log('Clicked');
+    const item = event.target;
+    console.log(item.getAttribute('data-btn-perf-id'));
 }
 
 // load page
