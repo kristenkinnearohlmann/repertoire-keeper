@@ -34,13 +34,18 @@ comp_10 = Composition.create(name: 'The Year 1812 Solemn Overture, Op. 49', comp
 
 comp_11 = Composition.create(name: 'Festive Overture in A major, Op. 96', composer_lastname: 'Shostakovich', composer_firstname: 'Dmitri', year_composed: 1947)
 
-# Performance
-# performance_year t.integer
-# references organization:references
-# references composition:references
-# years 2016, 2017, 2018, 2019, 2020
-# SPCS: all but 2020
-# MSO: all
-# cross Beethoven 6 2019 SPCS, 2016 MSO
-# cross Bernstein 2020 SPCS, 2018 MSO
-# 1 per year otherwise
+# Performances
+
+# # SPCS
+org_1.performances.create(performance_year: 2016, composition_id: comp_6.id)
+org_1.performances.create(performance_year: 2017, composition_id: comp_8.id)
+org_1.performances.create(performance_year: 2018, composition_id: comp_5.id)
+org_1.performances.create(performance_year: 2019, composition_id: comp_1.id)
+org_1.performances.create(performance_year: 2020, composition_id: comp_9.id)
+
+
+# # MSO
+org_2.performances.create(performance_year: 2016, composition_id: comp_1.id)
+org_2.performances.create(performance_year: 2017, composition_id: comp_10.id)
+org_2.performances.create(performance_year: 2018, composition_id: comp_9.id)
+org_2.performances.create(performance_year: 2019, composition_id: comp_2.id)
