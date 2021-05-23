@@ -16,6 +16,21 @@ a:visited {
     color: #778899;
 }
 
+.nav-submit {
+    background-color: silver;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    box-shadow: 3px 5px 4px #000;
+    font-size: 1em;
+    margin: 5px;
+    padding: 0.5em;
+    width: 90%;
+}
+
+.nav-submit:hover {
+    background-color: grey;
+}
+
 .display-none {
     display: none;
 }
