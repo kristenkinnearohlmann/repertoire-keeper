@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "static#home"
 
   resources :organizations do
-    resources :performances, only: [:show]
+    resources :performances, only: [:index, :show]
   end
   resources :compositions
   resources :performances

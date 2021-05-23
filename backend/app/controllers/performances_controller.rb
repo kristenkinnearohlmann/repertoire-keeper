@@ -1,7 +1,12 @@
 class PerformancesController < ApplicationController
 
     def index
-        perfs = Performance.all
+        if params[:organization_id]
+            perfs = Organization.find(params[:organization_id]).performances
+        else
+            perfs = Performance.all
+        end
+
         render json: PerformanceSerializer.new(perfs).to_serialized_json
     end
 
