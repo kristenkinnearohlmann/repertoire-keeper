@@ -108,6 +108,7 @@ function renderOrgPerformances(idValue) {
                 let perf = new Performance(item);
                 console.log(perf.performanceYear);
                 console.log(perf.organizationName);
+                mainPerfList.appendChild(perf.renderPerformanceData());
             }
         });
 }
