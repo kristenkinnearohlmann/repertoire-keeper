@@ -52,7 +52,9 @@ function displaySelectedOrgInfo(event) {
             renderOrgPerformances(idValue);
         });
     } else {
+        mainPerfList.innerHTML = "";
         mainMsgDefault.classList.remove("display-none");
+        mainCompList.classList.remove("display-none");
         renderCompList(mainCompListItems);
     }
 };
@@ -98,7 +100,9 @@ function renderCompList(items) {
 };
 
 function renderOrgPerformances(idValue) {
-    mainCompList.querySelector("ul").innerHTML = "";
+    // mainCompList.querySelector("ul").innerHTML = "";
+    mainCompList.classList.add("display-none");
+    mainPerfList.innerHTML = "";
 
     fetch(`${BASE_URL}/organizations/${idValue}/performances/`)
         .then(response => response.json())
