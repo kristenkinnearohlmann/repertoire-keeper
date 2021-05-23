@@ -19,6 +19,7 @@ class Performance {
         h3.innerText = this.performanceYear;
         div.appendChild(h3);
 
+        div.classList.add("detail-container-item");
         return div;
     }
 }

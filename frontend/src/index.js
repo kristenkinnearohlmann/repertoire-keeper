@@ -99,7 +99,7 @@ function renderCompList(items) {
 
 function renderOrgPerformances(idValue) {
     mainCompList.querySelector("ul").innerHTML = "";
-    mainPerfList.innerText = "Loading performances..."
+
     fetch(`${BASE_URL}/organizations/${idValue}/performances/`)
         .then(response => response.json())
         .then(data => {

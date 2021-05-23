@@ -73,6 +73,16 @@ a:visited {
     padding: 10px;
 }
 
+.detail-container {
+    flex-flow: row wrap;
+    display: flex;
+}
+
+.detail-container-item {
+    border: 2px solid darkgray;
+    margin: 4px;
+}
+
 #org-names {
     background-color: silver;
     border: 2px solid darkgray;
