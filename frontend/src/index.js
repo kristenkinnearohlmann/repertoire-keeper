@@ -5,6 +5,7 @@ const mainMsg = document.getElementById("main-msg");
 const mainCompList = document.getElementById("main-comp-list");
 const mainCompListItems = [];
 const mainMsgDefault = document.getElementById("main-msg-default");
+const mainPerfList = document.getElementById("main-perf-list");
 
 // structure page for use
 const init = () => {
@@ -97,11 +98,16 @@ function renderCompList(items) {
 };
 
 function renderOrgPerformances(idValue) {
-    // http://localhost:3000/organizations/1/performances/
+    mainCompList.querySelector("ul").innerHTML = "";
+    mainPerfList.innerText = "Loading performances..."
     fetch(`${BASE_URL}/organizations/${idValue}/performances/`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            for (let item of data) {
+                console.log(item);
+                console.log(item.performance_year);
+            }
         });
 }
 
