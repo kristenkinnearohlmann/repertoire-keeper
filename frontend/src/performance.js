@@ -23,28 +23,24 @@ class Performance {
     renderPerformanceData() {
         const div = document.createElement("div");
         const h3 = document.createElement("h3");
-        const btnEdit = document.createElement("button");
-        const subDiv = document.createElement("div")
 
         h3.innerHTML = this.performanceYear;
         div.appendChild(h3);
 
-        subDiv.appendChild(this.buildCompositionList());
-        div.appendChild(subDiv);
+        div.appendChild(this.buildCompositionList());
 
         div.classList.add("detail-container-item");
         div.setAttribute('data-perf-id',this.performanceId);
 
-        btnEdit.innerText = "Edit performance";
-        btnEdit.id = `btn-edit-perf-${this.performanceId}`;
-        btnEdit.classList.add("main-body-button");
-        btnEdit.addEventListener('click',editPerformance);
-        div.appendChild(btnEdit);
+        div.appendChild(this.buildEditButton());
+        div.appendChild(this.buildAddButton());
+        div.appendChild(this.buildCancelButton());
 
         return div;
     }
 
     buildCompositionList() {
+        const div = document.createElement("div");
         const ul = document.createElement("ul");
 
         ul.id = `perf-${this.performanceId}-comps`;
@@ -66,6 +62,43 @@ class Performance {
             ul.appendChild(li);
         }
 
-        return ul;
+        div.appendChild(ul);
+        return div;
     }
+
+    buildEditButton() {
+        const btn = document.createElement("button");
+
+        btn.innerText = "Edit performance";
+        btn.id = `btn-edit-perf-${this.performanceId}`;
+        btn.classList.add("main-body-button");
+        btn.addEventListener('click',editPerformance);
+
+        return btn;
+    }
+
+    buildAddButton() {
+        const btn = document.createElement("button");
+
+        btn.innerText = "Add composition";
+        btn.id = `btn-save-perf-${this.performanceId}`;
+        btn.classList.add("main-body-button");
+        btn.classList.add("display-none");
+        btn.addEventListener('click',addPerformanceComposition);
+
+        return btn;
+    }
+
+    buildCancelButton() {
+        const btn = document.createElement("button");
+
+        btn.innerText = "Cancel";
+        btn.id = `btn-save-perf-${this.performanceId}`;
+        btn.classList.add("main-body-button");
+        btn.classList.add("display-none");
+        btn.addEventListener('click',cancelEditPerformance);
+
+        return btn;
+    }
+
 }

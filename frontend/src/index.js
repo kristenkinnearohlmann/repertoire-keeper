@@ -150,8 +150,16 @@ function toggleEditBtns() {
 function deletePerformanceComposition(event) {
     const item = event.target;
     console.log(item.id);
-    console.log(item.parentElement);
+    console.log(parseInt(item.parentElement.parentElement),10);
 };
+
+function addPerformanceComposition(event) {
+    console.log("Add performance composition");
+}
+
+function cancelEditPerformance(event) {
+    console.log("Cancel edit performance");
+}
 
 // load page
 init();
