@@ -88,10 +88,6 @@ a:visited {
     padding: 10px;
 }
 
-.detail-container {
-
-}
-
 .detail-container-item {
     border: 2px solid darkgray;
     margin: 4px;
@@ -100,6 +96,23 @@ a:visited {
 
 .detail-container-item > h3 {
     margin: 4px;
+}
+
+.main-body-button {
+    background-color: silver;
+    border: 2px solid darkgray;
+    border-radius: 4px;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
+.main-body-button:hover {
+    background-color: grey;
+}
+
+.main-body-button-delete {
+    margin: 5px;
+    padding: 2px;
 }
 
 #org-names {

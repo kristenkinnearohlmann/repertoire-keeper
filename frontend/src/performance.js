@@ -48,16 +48,16 @@ class Performance {
             const btn = document.createElement("button");
 
             btn.id = `btn-comp-${comp.compositionId}`;
-            btn.innerText = 'X';
+            btn.innerText = 'x';
             btn.classList.add("display-none");
+            btn.classList.add("main-body-button");
+            btn.classList.add("main-body-button-delete");
 
             li.setAttribute('data-comp-id',comp.compositionId);
             li.innerText = `${comp.composerLastName}: ${comp.compositionName}`;
 
-            // btn.appendChild(li);
             btn.addEventListener('click',deletePerformanceComposition);
             li.appendChild(btn);
-            // ul.appendChild(btn);
             ul.appendChild(li);
         }
         subDiv.appendChild(ul);
@@ -68,6 +68,7 @@ class Performance {
 
         btn.innerText = "Edit performance";
         btn.id = `btn-edit-perf-${this.performanceId}`;
+        btn.classList.add("main-body-button");
         btn.addEventListener('click',editPerformance);
         div.appendChild(btn);
 
