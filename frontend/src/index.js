@@ -125,21 +125,29 @@ function performanceYearReverseSort(data) {
 
 function editPerformance(event) {
     const item = event.target;
-    const perfId = item.id.split("-").slice(-1);
-    const compList = document.querySelector(`#perf-${perfId}-comps`);
-    const compBtns = compList.querySelectorAll('button');
     const btns = item.parentElement.querySelectorAll('button');
-    
-    console.log(item.id);
-    console.log(item.parentElement);
-    console.log(item.parentElement.querySelectorAll('button'));
+
+    toggleEditBtns();
     btns.forEach(btn => {
         console.log(btn.id);
-        if (btn.id.includes('comp')) {
+        if (!btn.id.includes('edit')) {
             btn.classList.remove("display-none");
         }
     });
 };
+
+function toggleEditBtns() {
+    const btns = document.getElementById('main-body').querySelectorAll('button');
+
+    btns.forEach(btn => {
+        console.log(btn);
+        if (btn.id.includes('edit') && btn.disabled) {
+            btn.disabled = false;
+        } else if (btn.id.includes('edit') && !btn.disabled) {
+            btn.disabled = true;
+        }
+    });
+}
 
 function deletePerformanceComposition(event) {
     const item = event.target;

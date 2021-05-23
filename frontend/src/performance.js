@@ -67,7 +67,7 @@ class Performance {
         div.setAttribute('data-perf-id',this.performanceId);
 
         btn.innerText = "Edit performance";
-        btn.id = `btn-perf-${this.performanceId}`;
+        btn.id = `btn-edit-perf-${this.performanceId}`;
         btn.addEventListener('click',editPerformance);
         div.appendChild(btn);
 
