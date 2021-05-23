@@ -6,6 +6,10 @@ class Performance {
         this._compositions = data.compositions;
     }
 
+    get performanceId() {
+        return this._id;
+    }
+
     get performanceYear() {
         return this._performanceYear;
     }
@@ -20,20 +24,22 @@ class Performance {
         const div = document.createElement("div");
         const h3 = document.createElement("h3");
         const btn = document.createElement("button");
-
-        console.log(this.performanceYear);
-        console.log(this.getPerformanceCompositions());
-        // const comps = this.getPerformanceCompositions();
-        // console.log(typeof comps);
+        const subDiv = document.createElement("div")
 
         h3.innerHTML = this.performanceYear;
         div.appendChild(h3);
 
+        subDiv.innerHTML = `<ul>${this.getPerformanceCompositions().map(comp => {
+            return `<li data-comp-id="${comp.compositionId}">${comp.composerLastName}: ${comp.compositionName}</li>`;
+        }).join("")}</ul>`;
+        div.appendChild(subDiv);
+
+        div.classList.add("detail-container-item");
+        div.setAttribute('data-perf-id',this.performanceId);
+
         btn.innerText = "Edit performance";
         btn.addEventListener('click',editPerformance);
         div.appendChild(btn);
-
-        div.classList.add("detail-container-item");
 
         return div;
     }
