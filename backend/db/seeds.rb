@@ -39,6 +39,7 @@ comp_11 = Composition.create(name: 'Festive Overture in A major, Op. 96', compos
 # # SPCS
 org_1.performances.create(performance_year: 2016, composition_id: comp_6.id)
 org_1.performances.create(performance_year: 2017, composition_id: comp_8.id)
+org_1.performances.create(performance_year: 2017, composition_id: comp_7.id)
 org_1.performances.create(performance_year: 2018, composition_id: comp_5.id)
 org_1.performances.create(performance_year: 2019, composition_id: comp_1.id)
 org_1.performances.create(performance_year: 2020, composition_id: comp_9.id)

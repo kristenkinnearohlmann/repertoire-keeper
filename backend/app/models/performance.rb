@@ -1,4 +1,5 @@
 class Performance < ApplicationRecord
   belongs_to :organization
-  belongs_to :composition
+  has_many :performance_compositions, dependent: :destroy
+  has_many :compositions, through: :performance_compositions
 end

@@ -1,0 +1,2 @@
+class PerformanceCompositionsController < ApplicationController
+end

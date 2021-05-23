@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_222158) do
+ActiveRecord::Schema.define(version: 2021_05_23_015832) do
 
   create_table "compositions", force: :cascade do |t|
     t.string "name"
@@ -31,16 +31,24 @@ ActiveRecord::Schema.define(version: 2021_05_22_222158) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "performances", force: :cascade do |t|
-    t.integer "performance_year"
-    t.integer "organization_id", null: false
+  create_table "performance_compositions", force: :cascade do |t|
+    t.integer "performance_id", null: false
     t.integer "composition_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["composition_id"], name: "index_performances_on_composition_id"
+    t.index ["composition_id"], name: "index_performance_compositions_on_composition_id"
+    t.index ["performance_id"], name: "index_performance_compositions_on_performance_id"
+  end
+
+  create_table "performances", force: :cascade do |t|
+    t.integer "performance_year"
+    t.integer "organization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["organization_id"], name: "index_performances_on_organization_id"
   end
 
-  add_foreign_key "performances", "compositions"
+  add_foreign_key "performance_compositions", "compositions"
+  add_foreign_key "performance_compositions", "performances"
   add_foreign_key "performances", "organizations"
 end

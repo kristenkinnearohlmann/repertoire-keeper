@@ -6,6 +6,16 @@ class OrganizationSerializer
 
     def to_serialized_json
         options =  {
+            include: {
+                performances: {
+                    only: [:performance_year],
+                    include: {
+                        composition: {
+                            only: [:name]
+                        }
+                    }
+                }
+            },
             except: [:updated_at, :created_at]
         }
         @org.to_json(options)
