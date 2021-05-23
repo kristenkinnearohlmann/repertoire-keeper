@@ -125,8 +125,20 @@ function performanceYearReverseSort(data) {
 
 function editPerformance(event) {
     const item = event.target;
-    // console.log(item.getAttribute('data-btn-perf-id'));
+    const perfId = item.id.split("-").slice(-1);
+    const compList = document.querySelector(`#perf-${perfId}-comps`);
+    const compBtns = compList.querySelectorAll('button');
+    const btns = item.parentElement.querySelectorAll('button');
+    
     console.log(item.id);
+    console.log(item.parentElement);
+    console.log(item.parentElement.querySelectorAll('button'));
+    btns.forEach(btn => {
+        console.log(btn.id);
+        if (btn.id.includes('comp')) {
+            btn.classList.remove("display-none");
+        }
+    });
 };
 
 function deletePerformanceComposition(event) {

@@ -49,13 +49,16 @@ class Performance {
 
             btn.id = `btn-comp-${comp.compositionId}`;
             btn.innerText = 'X';
+            btn.classList.add("display-none");
 
             li.setAttribute('data-comp-id',comp.compositionId);
             li.innerText = `${comp.composerLastName}: ${comp.compositionName}`;
 
-            btn.appendChild(li);
+            // btn.appendChild(li);
             btn.addEventListener('click',deletePerformanceComposition);
-            ul.appendChild(btn);
+            li.appendChild(btn);
+            // ul.appendChild(btn);
+            ul.appendChild(li);
         }
         subDiv.appendChild(ul);
         div.appendChild(subDiv);
