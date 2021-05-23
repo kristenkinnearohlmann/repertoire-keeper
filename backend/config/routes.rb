@@ -2,7 +2,9 @@
 Rails.application.routes.draw do
   root to: "static#home"
 
-  resources :organizations
+  resources :organizations do
+    resources :performances, only: [:show]
+  end
   resources :compositions
   resources :performances
   resources :performance_compositions

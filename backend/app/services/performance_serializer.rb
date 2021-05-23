@@ -6,6 +6,14 @@ class PerformanceSerializer
     
     def to_serialized_json
         options = {
+            include: {
+                organization: {
+                    only: [:id, :name]
+                },
+                compositions: {
+                    except: [:updated_at, :created_at]
+                }
+            },
             except: [:updated_at, :created_at]
         }
         @perf.to_json(options)
