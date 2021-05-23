@@ -89,12 +89,16 @@ a:visited {
 }
 
 .detail-container {
-    flex-flow: row wrap;
-    display: flex;
+
 }
 
 .detail-container-item {
     border: 2px solid darkgray;
+    margin: 4px;
+    padding: 4px;
+}
+
+.detail-container-item > h3 {
     margin: 4px;
 }
 
