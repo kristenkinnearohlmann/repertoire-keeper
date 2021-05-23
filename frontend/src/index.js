@@ -1,13 +1,10 @@
 const BASE_URL = "http://localhost:3000";
 const orgNames = document.getElementById("org-names");
-const mainBody = document.getElementById("main-body");
 const mainBodyDefault = document.getElementById("main-body-default");
-const mainMsg = document.getElementById("main-msg");
 const detailMsg = document.getElementById("detail-msg");
 const mainCompList = document.getElementById("main-comp-list");
 const mainCompListItems = [];
-const mainMsgDefault = document.getElementById("main-msg-default");
-const mainPerfList = document.getElementById("main-perf-list");
+const detailPerfList = document.getElementById("main-perf-list");
 
 // structure page for use
 const init = () => {
@@ -37,7 +34,7 @@ const getOrgNames = () => {
 function displaySelectedOrgInfo(event) {
     const idValue = parseInt(event.target.value);
 
-    mainPerfList.innerHTML = "";
+    detailPerfList.innerHTML = "";
     detailMsg.innerHTML = "";
 
     if (!!idValue) {
@@ -50,7 +47,6 @@ function displaySelectedOrgInfo(event) {
             const orgDescr = org.renderDescription();
 
             detailMsg.appendChild(orgDescr);
-            // TODO: Main comp list for org once performance join table is ready
             renderOrgPerformances(idValue);
         });
     } else {
@@ -100,16 +96,31 @@ function renderCompList(items) {
 };
 
 function renderOrgPerformances(idValue) {
-    mainPerfList.innerHTML = "";
+    detailPerfList.innerHTML = "";
 
     fetch(`${BASE_URL}/organizations/${idValue}/performances/`)
         .then(response => response.json())
         .then(data => {
+            performanceYearReverseSort(data);
             for (let item of data) {
                 let perf = new Performance(item);
-                mainPerfList.appendChild(perf.renderPerformanceData());
+                detailPerfList.appendChild(perf.renderPerformanceData());
             }
         });
+};
+
+function performanceYearReverseSort(data) {
+    return(data.sort((a,b) => {
+        if (a.performance_year < b.performance_year) {
+            return 1;
+        }
+    
+        if (a.performance_year > b.performance_year) {
+            return -1;
+        }
+    
+        return 0;
+    }));
 };
 
 // load page
