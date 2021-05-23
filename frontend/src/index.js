@@ -1,7 +1,9 @@
 const BASE_URL = "http://localhost:3000";
 const orgNames = document.getElementById("org-names");
 const mainBody = document.getElementById("main-body");
+const mainBodyDefault = document.getElementById("main-body-default");
 const mainMsg = document.getElementById("main-msg");
+const detailMsg = document.getElementById("detail-msg");
 const mainCompList = document.getElementById("main-comp-list");
 const mainCompListItems = [];
 const mainMsgDefault = document.getElementById("main-msg-default");
@@ -34,27 +36,25 @@ const getOrgNames = () => {
 
 function displaySelectedOrgInfo(event) {
     const idValue = parseInt(event.target.value);
-    const pOrgDescrDetail = document.getElementById("org-descr-detail");
 
-    if (!!pOrgDescrDetail) {
-        mainMsg.removeChild(pOrgDescrDetail);
-    }
+    mainPerfList.innerHTML = "";
+    detailMsg.innerHTML = "";
 
     if (!!idValue) {
         fetch(`${BASE_URL}/organizations/${idValue}`)
         .then(response => response.json())
         .then(data => {
-            mainMsgDefault.classList.add("display-none");
+            mainBodyDefault.classList.add("display-none");
+
             const org = new Organization(data);
             const orgDescr = org.renderDescription();
-            mainMsg.appendChild(orgDescr);
+
+            detailMsg.appendChild(orgDescr);
             // TODO: Main comp list for org once performance join table is ready
             renderOrgPerformances(idValue);
         });
     } else {
-        mainPerfList.innerHTML = "";
-        mainMsgDefault.classList.remove("display-none");
-        mainCompList.classList.remove("display-none");
+        mainBodyDefault.classList.remove("display-none");
         renderCompList(mainCompListItems);
     }
 };
@@ -100,8 +100,6 @@ function renderCompList(items) {
 };
 
 function renderOrgPerformances(idValue) {
-    // mainCompList.querySelector("ul").innerHTML = "";
-    mainCompList.classList.add("display-none");
     mainPerfList.innerHTML = "";
 
     fetch(`${BASE_URL}/organizations/${idValue}/performances/`)
