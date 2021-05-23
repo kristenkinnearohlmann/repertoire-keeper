@@ -105,8 +105,9 @@ function renderOrgPerformances(idValue) {
         .then(data => {
             console.log(data);
             for (let item of data) {
-                console.log(item);
-                console.log(item.performance_year);
+                let perf = new Performance(item);
+                console.log(perf.performanceYear);
+                console.log(perf.organizationName);
             }
         });
 }
