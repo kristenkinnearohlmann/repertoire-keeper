@@ -1,4 +1,5 @@
 class OrganizationSerializer
+
     def initialize(org_object)
         @org = org_object
     end
@@ -9,4 +10,5 @@ class OrganizationSerializer
         }
         @org.to_json(options)
     end
+
 end

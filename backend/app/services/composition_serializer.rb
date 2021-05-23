@@ -1,4 +1,5 @@
 class CompositionSerializer
+
     def initialize(comp_object)
         @comp = comp_object
     end
@@ -9,4 +10,5 @@ class CompositionSerializer
         }
         @comp.to_json(options)
     end
+
 end

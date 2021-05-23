@@ -17,4 +17,5 @@ class OrganizationsController < ApplicationController
             render json: { message: "No Id given." }
         end
     end
+    
 end
