@@ -1,6 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
+    overflow: auto;
 }
 
 a {
@@ -29,7 +30,7 @@ a:visited {
 
 .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     flex-flow: nowrap row;
 }
 
