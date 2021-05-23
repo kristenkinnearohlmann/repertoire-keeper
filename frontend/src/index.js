@@ -48,6 +48,7 @@ function displaySelectedOrgInfo(event) {
             const orgDescr = org.renderDescription();
             mainMsg.appendChild(orgDescr);
             // TODO: Main comp list for org once performance join table is ready
+            renderOrgPerformances(idValue);
         });
     } else {
         mainMsgDefault.classList.remove("display-none");
@@ -94,6 +95,15 @@ function renderCompList(items) {
         mainCompList.querySelector("ul").appendChild(item);
     }
 };
+
+function renderOrgPerformances(idValue) {
+    // http://localhost:3000/organizations/1/performances/
+    fetch(`${BASE_URL}/organizations/${idValue}/performances/`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+}
 
 // load page
 init();
