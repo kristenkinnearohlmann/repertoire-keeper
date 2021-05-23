@@ -11,18 +11,17 @@ class Performance {
     }
 
     getPerformanceCompositions() {
-        const comps = this._compositions.map(item => {
-            const comp = new Composition(item);
-            return comp;
-        });
-        console.log(comps);
+        return this._compositions.map(comp => {
+            return new Composition(comp);
+        })
     }
 
     renderPerformanceData() {
         const div = document.createElement("div");
         const h3 = document.createElement("h3");
 
-        this.getPerformanceCompositions();
+        console.log(this.performanceYear);
+        console.log(this.getPerformanceCompositions());
         // const comps = this.getPerformanceCompositions();
         // console.log(typeof comps);
 
