@@ -96,7 +96,7 @@ function editPerformance(event) {
     const item = event.target;
     const btns = item.parentElement.querySelectorAll('button');
 
-    toggleEditBtns();
+    toggleDetailEditBtns();
     btns.forEach(btn => {
         if (!btn.id.includes('edit')) {
             btn.classList.remove("display-none");
@@ -117,10 +117,14 @@ function addPerformanceComposition(event) {
 };
 
 function cancelEditPerformance(event) {
-    console.log("Cancel edit performance");
     const btns = getMainBodyBtns();
 
-    console.log(btns);
+    toggleDetailEditBtns();
+    btns.forEach(btn => {
+        if (!btn.id.includes('edit')) {
+            btn.classList.add("display-none");
+        }
+    });
 };
 
 // Helper functions
@@ -155,7 +159,7 @@ function performanceYearReverseSort(data) {
     }));
 };
 
-function toggleEditBtns() {
+function toggleDetailEditBtns() {
     const btns = getMainBodyBtns();
 
     btns.forEach(btn => {
