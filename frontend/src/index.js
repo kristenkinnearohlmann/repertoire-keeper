@@ -108,6 +108,18 @@ function deletePerformanceComposition(event) {
 
     const perfId = getDbIdFromId(event.target.parentElement.parentElement.id);
     console.log(`performance_id: ${perfId}`);
+
+    fetch(`${BASE_URL}/performances/${perfId}/performance_compositions`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const perfComps = data.map(element => new PerformanceComposition(element));
+            console.log(perfComps);
+            console.log(perfComps[1].compositionId);
+            console.log(perfComps[1].compositionId === compId);
+            // const targetPerfComp = perfComps.find(element => element.compositionId === compId);
+            // console.log(targetPerfComp);
+        });
 };
 
 function addPerformanceComposition(event) {
@@ -191,6 +203,7 @@ function getMainBodyBtns() {
 document.getElementById('btn-left-main').addEventListener('click', () => {
     resetMainDetail();
     resetMainDefault();
+    orgNames.parentElement.reset();
 })
 
 // load page
