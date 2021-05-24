@@ -34,8 +34,7 @@ const getOrgNames = () => {
 function displaySelectedOrgInfo(event) {
     const idValue = parseInt(event.target.value);
 
-    detailPerfList.innerHTML = "";
-    detailMsg.innerHTML = "";
+    resetMainDetail();
 
     if (!!idValue) {
         fetch(`${BASE_URL}/organizations/${idValue}`)
@@ -50,8 +49,7 @@ function displaySelectedOrgInfo(event) {
             renderOrgPerformances(idValue);
         });
     } else {
-        mainBodyDefault.classList.remove("display-none");
-        renderCompList(mainCompListItems);
+        resetMainDefault();
     }
 };
 
@@ -128,6 +126,16 @@ function cancelEditPerformance(event) {
 };
 
 // Helper functions
+function resetMainDefault() {
+    mainBodyDefault.classList.remove("display-none");
+    renderCompList(mainCompListItems);
+};
+
+function resetMainDetail() {
+    detailPerfList.innerHTML = "";
+    detailMsg.innerHTML = "";
+};
+
 function compositionSort(data) {
     return(data.sort((a,b) => {
         const aVals = `${a.composer_lastname.toLowerCase()} ${a.composer_firstname.toLowerCase()} ${a.name}`;
@@ -178,6 +186,12 @@ function getDbIdFromId(idVal) {
 function getMainBodyBtns() {
     return document.getElementById('main-body').querySelectorAll('button');
 };
+
+// Left panel buttons
+document.getElementById('btn-left-main').addEventListener('click', () => {
+    resetMainDetail();
+    resetMainDefault();
+})
 
 // load page
 init();
