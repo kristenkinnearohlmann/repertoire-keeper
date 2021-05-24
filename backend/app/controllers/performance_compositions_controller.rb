@@ -11,7 +11,9 @@ class PerformanceCompositionsController < ApplicationController
     end
 
     def destroy
-        raise params.inspect
+        perfcomp = PerformanceComposition.find(params[:id])
+        perfcomp.destroy
+        render json: {}
     end
 
 end

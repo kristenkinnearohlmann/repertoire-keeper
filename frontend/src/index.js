@@ -113,10 +113,25 @@ function deletePerformanceComposition(event) {
         .then(data => {
             const perfComps = data.map(element => new PerformanceComposition(element));
             const targetPerfComp = perfComps.find(element => element.compositionId === compId);
-            console.log(targetPerfComp);
 
             if (targetPerfComp) {
-                console.log("Found");
+                const configObj = {
+                    method: "DELETE",
+                    header: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    }
+                }
+
+                fetch(`${BASE_URL}/performance_compositions/${targetPerfComp.id}`,configObj)
+                    .then(response => {
+                        itemParent.removeChild(item);
+                        cancelEditPerformance();
+                    })
+                    .catch(error => {
+                        // TODO: Implement visible error msg
+                        console.log(error.message);
+                    });
             } else {
                 // TODO: Implement visible error msg
                 console.log("Not found");
