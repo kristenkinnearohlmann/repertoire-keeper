@@ -103,22 +103,24 @@ function editPerformance(event) {
 };
 
 function deletePerformanceComposition(event) {
-    const item = event.target;
-    console.log(item);
+    const item = event.target.parentElement;
+    const itemParent = item.parentElement;
     const compId = getDbIdFromId(event.target.id);
-    console.log(`composition_id: ${compId}`);
-
     const perfId = getDbIdFromId(event.target.parentElement.parentElement.id);
-    console.log(`performance_id: ${perfId}`);
 
     fetch(`${BASE_URL}/performances/${perfId}/performance_compositions`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             const perfComps = data.map(element => new PerformanceComposition(element));
-            console.log(perfComps);
             const targetPerfComp = perfComps.find(element => element.compositionId === compId);
             console.log(targetPerfComp);
+
+            if (targetPerfComp) {
+                console.log("Found");
+            } else {
+                // TODO: Implement visible error msg
+                console.log("Not found");
+            }
         });
 };
 
