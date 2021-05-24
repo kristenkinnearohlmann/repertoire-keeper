@@ -71,23 +71,6 @@ const getCompositions = () => {
         });
 };
 
-function compositionSort(data) {
-    return(data.sort((a,b) => {
-        const aVals = `${a.composer_lastname.toLowerCase()} ${a.composer_firstname.toLowerCase()} ${a.name}`;
-        const bVals = `${b.composer_lastname.toLowerCase()} ${b.composer_firstname.toLowerCase()} ${b.name}`;
-
-        if (aVals < bVals) {
-            return -1;
-        }
-    
-        if (aVals > bVals) {
-            return 1;
-        }
-    
-        return 0;
-    }));
-}
-
 function renderCompList(items) {
     mainCompList.querySelector("ul").innerHTML = "";
     for (let item of items) {
@@ -109,20 +92,6 @@ function renderOrgPerformances(idValue) {
         });
 };
 
-function performanceYearReverseSort(data) {
-    return(data.sort((a,b) => {
-        if (a.performance_year < b.performance_year) {
-            return 1;
-        }
-    
-        if (a.performance_year > b.performance_year) {
-            return -1;
-        }
-    
-        return 0;
-    }));
-};
-
 function editPerformance(event) {
     const item = event.target;
     const btns = item.parentElement.querySelectorAll('button');
@@ -135,20 +104,7 @@ function editPerformance(event) {
     });
 };
 
-function toggleEditBtns() {
-    const btns = getMainBodyBtns();
-
-    btns.forEach(btn => {
-        if (btn.id.includes('edit') && btn.disabled) {
-            btn.disabled = false;
-        } else if (btn.id.includes('edit') && !btn.disabled) {
-            btn.disabled = true;
-        }
-    });
-}
-
 function deletePerformanceComposition(event) {
-
     const compId = getDbIdFromId(event.target.id);
     console.log(`composition_id: ${compId}`);
 
@@ -165,6 +121,50 @@ function cancelEditPerformance(event) {
     const btns = getMainBodyBtns();
 
     console.log(btns);
+};
+
+// Helper functions
+function compositionSort(data) {
+    return(data.sort((a,b) => {
+        const aVals = `${a.composer_lastname.toLowerCase()} ${a.composer_firstname.toLowerCase()} ${a.name}`;
+        const bVals = `${b.composer_lastname.toLowerCase()} ${b.composer_firstname.toLowerCase()} ${b.name}`;
+
+        if (aVals < bVals) {
+            return -1;
+        }
+    
+        if (aVals > bVals) {
+            return 1;
+        }
+    
+        return 0;
+    }));
+};
+
+function performanceYearReverseSort(data) {
+    return(data.sort((a,b) => {
+        if (a.performance_year < b.performance_year) {
+            return 1;
+        }
+    
+        if (a.performance_year > b.performance_year) {
+            return -1;
+        }
+    
+        return 0;
+    }));
+};
+
+function toggleEditBtns() {
+    const btns = getMainBodyBtns();
+
+    btns.forEach(btn => {
+        if (btn.id.includes('edit') && btn.disabled) {
+            btn.disabled = false;
+        } else if (btn.id.includes('edit') && !btn.disabled) {
+            btn.disabled = true;
+        }
+    });
 };
 
 function getDbIdFromId(idVal) {
