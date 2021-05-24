@@ -151,11 +151,10 @@ function deletePerformanceComposition(event) {
     const item = event.target;
     const itemParent = item.parentElement.parentElement;
 
-    console.log(item.id);
-    console.log(item.parentElement.parentElement.id);
-    const q = itemParent.id.split("-");
-    console.log(q);
-    console.log(q.find(element => Number.isInteger(parseInt(element,10))));
+    const compId = event.target.id.split('-').find(element => Number.isInteger(parseInt(element,10)));
+    console.log(`composition_id: ${compId}`);
+    const perfId = itemParent.id.split("-").find(element => Number.isInteger(parseInt(element,10)));
+    console.log(`performance_id: ${perfId}`);
 };
 
 function addPerformanceComposition(event) {
