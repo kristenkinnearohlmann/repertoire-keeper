@@ -148,29 +148,32 @@ function toggleEditBtns() {
 }
 
 function deletePerformanceComposition(event) {
-    const item = event.target;
-    const itemParent = item.parentElement.parentElement;
 
-    const compId = event.target.id.split('-').find(element => Number.isInteger(parseInt(element,10)));
+    const compId = getDbIdFromId(event.target.id);
     console.log(`composition_id: ${compId}`);
-    const perfId = itemParent.id.split("-").find(element => Number.isInteger(parseInt(element,10)));
+
+    const perfId = getDbIdFromId(event.target.parentElement.parentElement.id);
     console.log(`performance_id: ${perfId}`);
 };
 
 function addPerformanceComposition(event) {
     console.log("Add performance composition");
-}
+};
 
 function cancelEditPerformance(event) {
     console.log("Cancel edit performance");
     const btns = getMainBodyBtns();
 
     console.log(btns);
-}
+};
+
+function getDbIdFromId(idVal) {
+    return idVal.split('-').find(element => Number.isInteger(parseInt(element,10)))
+};
 
 function getMainBodyBtns() {
     return document.getElementById('main-body').querySelectorAll('button');
-}
+};
 
 // load page
 init();
