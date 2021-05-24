@@ -149,8 +149,13 @@ function toggleEditBtns() {
 
 function deletePerformanceComposition(event) {
     const item = event.target;
+    const itemParent = item.parentElement.parentElement;
+
     console.log(item.id);
-    console.log(parseInt(item.parentElement.parentElement),10);
+    console.log(item.parentElement.parentElement.id);
+    const q = itemParent.id.split("-");
+    console.log(q);
+    console.log(q.find(element => Number.isInteger(parseInt(element,10))));
 };
 
 function addPerformanceComposition(event) {
