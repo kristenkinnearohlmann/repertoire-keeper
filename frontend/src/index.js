@@ -103,6 +103,8 @@ function editPerformance(event) {
 };
 
 function deletePerformanceComposition(event) {
+    const item = event.target;
+    console.log(item);
     const compId = getDbIdFromId(event.target.id);
     console.log(`composition_id: ${compId}`);
 
@@ -115,10 +117,8 @@ function deletePerformanceComposition(event) {
             console.log(data);
             const perfComps = data.map(element => new PerformanceComposition(element));
             console.log(perfComps);
-            console.log(perfComps[1].compositionId);
-            console.log(perfComps[1].compositionId === compId);
-            // const targetPerfComp = perfComps.find(element => element.compositionId === compId);
-            // console.log(targetPerfComp);
+            const targetPerfComp = perfComps.find(element => element.compositionId === compId);
+            console.log(targetPerfComp);
         });
 };
 
@@ -192,7 +192,7 @@ function toggleDetailEditBtns() {
 };
 
 function getDbIdFromId(idVal) {
-    return idVal.split('-').find(element => Number.isInteger(parseInt(element,10)))
+    return parseInt(idVal.split('-').find(element => Number.isInteger(parseInt(element,10))),10);
 };
 
 function getMainBodyBtns() {
