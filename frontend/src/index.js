@@ -136,7 +136,7 @@ function editPerformance(event) {
 };
 
 function toggleEditBtns() {
-    const btns = document.getElementById('main-body').querySelectorAll('button');
+    const btns = getMainBodyBtns();
 
     btns.forEach(btn => {
         if (btn.id.includes('edit') && btn.disabled) {
@@ -163,6 +163,13 @@ function addPerformanceComposition(event) {
 
 function cancelEditPerformance(event) {
     console.log("Cancel edit performance");
+    const btns = getMainBodyBtns();
+
+    console.log(btns);
+}
+
+function getMainBodyBtns() {
+    return document.getElementById('main-body').querySelectorAll('button');
 }
 
 // load page

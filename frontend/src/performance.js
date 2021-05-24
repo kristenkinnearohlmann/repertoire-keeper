@@ -48,7 +48,7 @@ class Performance {
             const li = document.createElement("li");
             const btn = document.createElement("button");
 
-            btn.id = `btn-comp-${comp.compositionId}`;
+            btn.id = `btn-dele-comp-${comp.compositionId}`;
             btn.innerText = 'x';
             btn.classList.add("display-none");
             btn.classList.add("main-body-button");
