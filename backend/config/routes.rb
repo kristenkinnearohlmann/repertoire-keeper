@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :performances, only: [:index, :show]
   end
   resources :compositions
-  resources :performances
+  resources :performances do
+    resources :performance_compositions, only: [:index, :destroy]
+  end
   resources :performance_compositions
 end
