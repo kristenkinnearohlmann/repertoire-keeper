@@ -147,6 +147,10 @@ function addPerformanceComposition(event) {
         if (btn.id.includes('dele')) {
             btn.classList.add("display-none");
         }
+
+        if (btn.id.includes('add')) {
+            btn.disabled = "true";
+        }
     })
     const addForm = document.getElementById(`perf-${getDbIdFromId(event.target.id)}-add-comp`);
     addForm.classList.remove("display-none");
@@ -160,6 +164,9 @@ function cancelEditPerformance(event) {
     btns.forEach(btn => {
         if (!btn.id.includes('edit')) {
             btn.classList.add("display-none");
+        }
+        if (btn.id.includes('add')) {
+            btn.disabled = false;
         }
     });
 
