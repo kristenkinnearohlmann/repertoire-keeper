@@ -140,7 +140,6 @@ function deletePerformanceComposition(event) {
 };
 
 function addPerformanceComposition(event) {
-    console.log("Add performance composition");
     const btns = getMainBodyBtns();
 
     btns.forEach(btn => {
@@ -179,7 +178,7 @@ function addCompositionToPerformance(event) {
         .then(response => response.json())
         .then(data => {
             const comp = new Composition(data.composition);
-            perfCompList.appendChild(comp.renderCompositionListItem());
+            perfCompList.appendChild(comp.renderPerformanceCompositionListItem());
             cancelEditPerformance();
         })
 };

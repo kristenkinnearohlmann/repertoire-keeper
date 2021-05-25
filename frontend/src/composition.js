@@ -50,4 +50,23 @@ class Composition {
 
         return li;
     }
+
+    renderPerformanceCompositionListItem() {
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+
+        btn.id = `btn-dele-comp-${this.compositionId}`;
+        btn.innerText = 'x';
+        btn.classList.add("display-none");
+        btn.classList.add("main-body-button");
+        btn.classList.add("main-body-button-delete");
+
+        li.setAttribute('data-comp-id',this.compositionId);
+        li.innerText = `${this.composerLastName}: ${this.compositionName}`;
+
+        btn.addEventListener('click',deletePerformanceComposition);
+        li.appendChild(btn);
+
+        return li;
+    }
 }

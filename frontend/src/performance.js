@@ -46,21 +46,7 @@ class Performance {
 
         ul.id = `perf-${this.performanceId}-comps`;
         for (let comp of this.getPerformanceCompositions()) {
-            const li = document.createElement("li");
-            const btn = document.createElement("button");
-
-            btn.id = `btn-dele-comp-${comp.compositionId}`;
-            btn.innerText = 'x';
-            btn.classList.add("display-none");
-            btn.classList.add("main-body-button");
-            btn.classList.add("main-body-button-delete");
-
-            li.setAttribute('data-comp-id',comp.compositionId);
-            li.innerText = `${comp.composerLastName}: ${comp.compositionName}`;
-
-            btn.addEventListener('click',deletePerformanceComposition);
-            li.appendChild(btn);
-            ul.appendChild(li);
+            ul.appendChild(comp.renderPerformanceCompositionListItem());
         }
 
         div.appendChild(ul);
