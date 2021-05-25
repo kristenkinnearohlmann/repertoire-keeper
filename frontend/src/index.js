@@ -159,7 +159,7 @@ function addPerformanceComposition(event) {
 function addCompositionToPerformance(event) {
     event.preventDefault();
     const compForm = event.target;
-    console.log(compForm);
+
     console.log(compForm.performance_id.value);
     console.log(compForm.comp_name.value);
     console.log(compForm.comp_composer_firstname.value);
