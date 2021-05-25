@@ -108,14 +108,16 @@ class Performance {
 
         form.innerHTML = `
         <p>Add composition to performance</p>
+        <input type="hidden" name="performance_id" id="performance_id" value="${this.performanceId}">
         <input type="text" name="comp[name]" id="comp_name" placeholder="Composition Title"><br/>
+        <input type="text" name="comp[composer_firstname]" id="comp_composer_firstname" placeholder="Composer First Name"></br>        
         <input type="text" name="comp[composer_lastname]" id="comp_composer_lastname" placeholder="Composer Last Name"></br>
+        <input type="text" name="comp[year_composed]" id="comp_year_composed" placeholder="Year Composed"></br>
         <input type="Submit">
         `;
         div.appendChild(form);
 
         div.id = `perf-${this.performanceId}-add-comp`;
-        // div.innerText = "Add composition to performance";
         div.classList.add("perf-add-comp");
         div.classList.add("display-none");
         div.addEventListener('submit',addCompositionToPerformance);
