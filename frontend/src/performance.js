@@ -105,8 +105,9 @@ class Performance {
     buildAddCompositionForm() {
         const div = document.createElement("div");
 
-        div.id = "perf-add-comp";
+        div.id = `perf-${this.performanceId}-add-comp`;
         div.innerText = "Add composition to performance";
+        div.classList.add("perf-add-comp");
         div.classList.add("display-none");
 
         return div;

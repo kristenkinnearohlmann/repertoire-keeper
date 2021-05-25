@@ -5,7 +5,6 @@ const detailMsg = document.getElementById("detail-msg");
 const mainCompList = document.getElementById("main-comp-list");
 const mainCompListItems = [];
 const detailPerfList = document.getElementById("main-perf-list");
-const addCompToPerf = document.getElementById("perf-add-comp");
 
 // structure page for use
 const init = () => {
@@ -144,12 +143,18 @@ function addPerformanceComposition(event) {
     console.log("Add performance composition");
     const btns = getMainBodyBtns();
 
-    addCompToPerf.classList.remove("display-none");
-
+    btns.forEach(btn => {
+        if (btn.id.includes('dele')) {
+            btn.classList.add("display-none");
+        }
+    })
+    const addForm = document.getElementById(`perf-${getDbIdFromId(event.target.id)}-add-comp`);
+    addForm.classList.remove("display-none");
 };
 
 function cancelEditPerformance(event) {
     const btns = getMainBodyBtns();
+    const addFormDivs = document.querySelectorAll(".perf-add-comp");
 
     toggleDetailEditBtns();
     btns.forEach(btn => {
@@ -157,6 +162,10 @@ function cancelEditPerformance(event) {
             btn.classList.add("display-none");
         }
     });
+
+    addFormDivs.forEach(div => {
+        div.classList.add("display-none");
+    })
 };
 
 // Helper functions
