@@ -5,6 +5,7 @@ const detailMsg = document.getElementById("detail-msg");
 const mainCompList = document.getElementById("main-comp-list");
 const mainCompListItems = [];
 const detailPerfList = document.getElementById("main-perf-list");
+const addCompToPerf = document.getElementById("perf-add-comp");
 
 // structure page for use
 const init = () => {
@@ -141,6 +142,10 @@ function deletePerformanceComposition(event) {
 
 function addPerformanceComposition(event) {
     console.log("Add performance composition");
+    const btns = getMainBodyBtns();
+
+    addCompToPerf.classList.remove("display-none");
+
 };
 
 function cancelEditPerformance(event) {

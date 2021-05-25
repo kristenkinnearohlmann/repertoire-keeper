@@ -82,7 +82,7 @@ class Performance {
         const btn = document.createElement("button");
 
         btn.innerText = "Add composition";
-        btn.id = `btn-save-perf-${this.performanceId}`;
+        btn.id = `btn-add-perf-${this.performanceId}`;
         btn.classList.add("main-body-button");
         btn.classList.add("display-none");
         btn.addEventListener('click',addPerformanceComposition);
@@ -94,7 +94,7 @@ class Performance {
         const btn = document.createElement("button");
 
         btn.innerText = "Cancel";
-        btn.id = `btn-save-perf-${this.performanceId}`;
+        btn.id = `btn-cancel-perf-${this.performanceId}`;
         btn.classList.add("main-body-button");
         btn.classList.add("display-none");
         btn.addEventListener('click',cancelEditPerformance);
@@ -107,6 +107,7 @@ class Performance {
 
         div.id = "perf-add-comp";
         div.innerText = "Add composition to performance";
+        div.classList.add("display-none");
 
         return div;
     }
