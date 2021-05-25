@@ -156,6 +156,13 @@ function addPerformanceComposition(event) {
     addForm.classList.remove("display-none");
 };
 
+function addCompositionToPerformance(event) {
+    event.preventDefault();
+    const compForm = event.target;
+    console.log(compForm.comp_name.value);
+    console.log(compForm.comp_composer_lastname.value);
+};
+
 function cancelEditPerformance(event) {
     const btns = getMainBodyBtns();
     const addFormDivs = document.querySelectorAll(".perf-add-comp");

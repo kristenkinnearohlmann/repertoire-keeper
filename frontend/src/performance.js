@@ -110,6 +110,7 @@ class Performance {
         <p>Add composition to performance</p>
         <input type="text" name="comp[name]" id="comp_name" placeholder="Composition Title"><br/>
         <input type="text" name="comp[composer_lastname]" id="comp_composer_lastname" placeholder="Composer Last Name"></br>
+        <input type="Submit">
         `;
         div.appendChild(form);
 
@@ -117,6 +118,7 @@ class Performance {
         // div.innerText = "Add composition to performance";
         div.classList.add("perf-add-comp");
         div.classList.add("display-none");
+        div.addEventListener('submit',addCompositionToPerformance);
 
         return div;
     }
