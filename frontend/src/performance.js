@@ -104,9 +104,17 @@ class Performance {
 
     buildAddCompositionForm() {
         const div = document.createElement("div");
+        const form = document.createElement("form");
+
+        form.innerHTML = `
+        <p>Add composition to performance</p>
+        <input type="text" name="comp[name]" id="comp_name" placeholder="Composition Title"><br/>
+        <input type="text" name="comp[composer_lastname]" id="comp_composer_lastname" placeholder="Composer Last Name"></br>
+        `;
+        div.appendChild(form);
 
         div.id = `perf-${this.performanceId}-add-comp`;
-        div.innerText = "Add composition to performance";
+        // div.innerText = "Add composition to performance";
         div.classList.add("perf-add-comp");
         div.classList.add("display-none");
 

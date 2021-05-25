@@ -172,6 +172,7 @@ function cancelEditPerformance(event) {
 
     addFormDivs.forEach(div => {
         div.classList.add("display-none");
+        div.querySelector("form").reset();
     })
 };
 
