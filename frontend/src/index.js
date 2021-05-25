@@ -58,7 +58,8 @@ const getCompositions = () => {
         .then(response => response.json())
         .then(data => {
             const comps = compositionSort(data);
-
+            mainCompListItems.length = 0;
+            
             for (let item in comps) {
                 const comp = new Composition(comps[item]);
                 const li = comp.renderCompositionListItem();
@@ -206,7 +207,7 @@ function cancelEditPerformance(event) {
 // Helper functions
 function resetMainDefault() {
     mainBodyDefault.classList.remove("display-none");
-    renderCompList(mainCompListItems);
+    getCompositions();
 };
 
 function resetMainDetail() {
