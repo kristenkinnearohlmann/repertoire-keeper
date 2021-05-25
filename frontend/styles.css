@@ -123,6 +123,14 @@ a:visited {
     padding: 0.5em;
 }
 
+input {
+    background-color: lightgrey;
+    border: 2px solid darkgray;
+    border-radius: 4px;
+    margin: 2px;
+    width: 90%;
+}
+
 #org-names {
     background-color: silver;
     border: 2px solid darkgray;
