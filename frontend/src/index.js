@@ -159,32 +159,32 @@ function addPerformanceComposition(event) {
 function addCompositionToPerformance(event) {
     event.preventDefault();
     const compForm = event.target;
+    console.log(compForm);
 
-    console.log(compForm.performance_id.value);
-    console.log(compForm.comp_name.value);
-    console.log(compForm.comp_composer_firstname.value);
-    console.log(compForm.comp_composer_lastname.value);
-    console.log(compForm.comp_year_composed.value);
+    // const configObj = {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         "name": compForm.comp_name.value,
+    //         "composer_lastname": compForm.comp_composer_lastname.value,
+    //         "composer_firstname": compForm.comp_composer_firstname.value,
+    //         "year_composed": compForm.comp_year_composed.value
+    //     })
+    // };
 
-    const configObj = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            "name": compForm.comp_name.value,
-            "composer_lastname": compForm.comp_composer_lastname.value,
-            "composer_firstname": compForm.comp_composer_firstname.value,
-            "year_composed": compForm.comp_year_composed.value
-        })
-    };
-
-    fetch(`${BASE_URL}/performances/${compForm.performance_id.value}/performance_compositions`, configObj)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
+    // fetch(`${BASE_URL}/performances/${compForm.performance_id.value}/performance_compositions`, configObj)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(data);
+    //         console.log(data.composition);
+    //         const comp = new Composition(data.composition);
+    //         console.log(comp.renderCompositionListItem());
+    //         // console.log(comp);
+    //         // cancelEditPerformance();
+    //     })
 };
 
 function cancelEditPerformance(event) {
