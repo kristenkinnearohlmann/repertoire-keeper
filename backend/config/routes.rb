@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :compositions
   resources :performances do
-    resources :performance_compositions, only: [:index, :delete]
+    resources :performance_compositions, only: [:index, :create, :delete]
   end
   resources :performance_compositions
 end
