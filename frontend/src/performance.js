@@ -35,6 +35,7 @@ class Performance {
         div.appendChild(this.buildEditButton());
         div.appendChild(this.buildAddButton());
         div.appendChild(this.buildCancelButton());
+        div.appendChild(this.buildAddCompositionForm());
 
         return div;
     }
@@ -99,6 +100,15 @@ class Performance {
         btn.addEventListener('click',cancelEditPerformance);
 
         return btn;
+    }
+
+    buildAddCompositionForm() {
+        const div = document.createElement("div");
+
+        div.id = "perf-add-comp";
+        div.innerText = "Add composition to performance";
+
+        return div;
     }
 
 }
