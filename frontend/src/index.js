@@ -168,10 +168,12 @@ function addCompositionToPerformance(event) {
             "Accept": "application/json"
         },
         body: JSON.stringify({
-            "name": compForm.comp_name.value,
-            "composer_lastname": compForm.comp_composer_lastname.value,
-            "composer_firstname": compForm.comp_composer_firstname.value,
-            "year_composed": compForm.comp_year_composed.value
+            "composition": {
+                "name": compForm.comp_name.value,
+                "composer_lastname": compForm.comp_composer_lastname.value,
+                "composer_firstname": compForm.comp_composer_firstname.value,
+                "year_composed": compForm.comp_year_composed.value
+            }
         })
     };
 

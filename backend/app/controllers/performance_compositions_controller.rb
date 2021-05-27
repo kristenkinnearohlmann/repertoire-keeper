@@ -37,7 +37,7 @@ class PerformanceCompositionsController < ApplicationController
     private
 
     def performance_composition_params(*args)
-        params.permit(*args)
+        params.require(:composition).permit(*args)
     end
 
 end
