@@ -54,9 +54,11 @@ function displaySelectedOrgInfo(event) {
 };
 
 const getCompositions = () => {
+    console.log("a");
     fetch(`${BASE_URL}/compositions`)
         .then(response => response.json())
         .then(data => {
+            console.log("b");
             const comps = compositionSort(data);
             mainCompListItems.length = 0;
             
@@ -68,6 +70,7 @@ const getCompositions = () => {
 
             renderCompList(mainCompListItems);
         });
+    console.log("c");
 };
 
 function renderCompList(items) {
@@ -217,6 +220,8 @@ function resetMainDetail() {
     detailMsg.innerHTML = "";
 };
 
+// TODO: Move to backend scope
+// TODO: Look into local compare!
 function compositionSort(data) {
     return(data.sort((a,b) => {
         const aVals = `${a.composer_lastname.toLowerCase()} ${a.composer_firstname.toLowerCase()} ${a.name}`;

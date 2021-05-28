@@ -9,6 +9,7 @@ class PerformanceCompositionsController < ApplicationController
         render json: PerformanceCompositionSerializer.new(perfcomps).to_serialized_json
     end
 
+    # TODO: Refactor to simplify - error handling helpers and maybe call composition controller since this record wouldn't be created if not comp created
     def create
         if params[:performance_id]
             perf = Performance.find_by(id: params[:performance_id])

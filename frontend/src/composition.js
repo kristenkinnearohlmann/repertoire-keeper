@@ -5,6 +5,7 @@ class Composition {
         this._composerLastName = data.composer_lastname;
         this._composerFirstName = data.composer_firstname;
         this._yearComposed = data.year_composed;
+        this.likes = 0;
     }
 
     get compositionId() {
@@ -43,10 +44,28 @@ class Composition {
         return fmtName;
     }
 
+    moreLikes(event) {
+        this.likes += 1;
+        event.target.parentElement.querySelector("p").innerText = this.likes;
+    }
+
     renderCompositionListItem() {
         const li = document.createElement("li");
+        const btn = document.createElement("btn");
+        const p = document.createElement("p");
+
+        btn.id = `btn-like-comp-${this.compositionId}`;
+        btn.innerText = 'Like';
+        btn.classList.add("main-body-button");
+        btn.classList.add("main-body-button-delete");
+        btn.addEventListener('click',(e) => this.moreLikes(e));
+
+        p.innerText = this.likes;
 
         li.innerText = `${this.composerFullNameDirectoryStyle}: ${this.compositionName} (${this.yearComposed})`;
+
+        li.appendChild(btn);
+        li.appendChild(p);
 
         return li;
     }
